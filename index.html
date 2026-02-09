@@ -6,13 +6,13 @@
     <title>Super Quant Club | NIT Jalandhar</title>
     <style>
         :root {
-            --primary-bg: #000000;
-            --secondary-bg: #0a0a0a;
-            --accent-color: #ff0000;
-            --accent-glow: rgba(255, 0, 0, 0.6);
+            --primary-bg: #050510;
+            --secondary-bg: #0d0d1f;
+            --accent-color: #a855f7; /* Purple */
+            --secondary-accent: #3b82f6; /* Blue */
             --text-color: #ffffff;
-            --glass-bg: rgba(20, 20, 20, 0.8);
-            --border-color: rgba(255, 0, 0, 0.2);
+            --glass-bg: rgba(15, 15, 35, 0.8);
+            --border-color: rgba(168, 85, 247, 0.3);
         }
 
         * { box-sizing: border-box; }
@@ -40,7 +40,7 @@
             position: absolute;
             top: 0; left: 0; width: 100%; height: 100%;
             z-index: 1;
-            background: radial-gradient(circle at center, #1a0000 0%, #000000 100%);
+            background: radial-gradient(circle at center, #1e1b4b 0%, #050510 100%);
         }
 
         .hero-container {
@@ -52,7 +52,7 @@
             border: 1px solid var(--border-color);
             border-radius: 20px;
             text-align: center;
-            box-shadow: 0 0 30px rgba(255, 0, 0, 0.1);
+            box-shadow: 0 0 40px rgba(168, 85, 247, 0.15);
         }
 
         h1 {
@@ -60,7 +60,7 @@
             margin: 0;
             text-transform: uppercase;
             letter-spacing: 8px;
-            background: linear-gradient(to right, #fff 20%, var(--accent-color) 40%, var(--accent-color) 60%, #fff 80%);
+            background: linear-gradient(to right, #60a5fa, #a855f7, #ec4899);
             background-size: 200% auto;
             background-clip: text;
             -webkit-background-clip: text;
@@ -83,7 +83,7 @@
 
         h2 {
             font-size: 2.5rem;
-            color: var(--accent-color);
+            color: var(--secondary-accent);
             border-left: 5px solid var(--accent-color);
             padding-left: 15px;
             margin-bottom: 30px;
@@ -94,7 +94,7 @@
         p {
             line-height: 1.8;
             font-size: 1.1rem;
-            color: #bbb;
+            color: #cbd5e1;
             max-width: 800px;
         }
 
@@ -116,22 +116,23 @@
         }
 
         .dog-card:hover {
-            border-color: var(--accent-color);
-            box-shadow: 0 0 40px rgba(255, 0, 0, 0.2);
+            border-color: var(--secondary-accent);
+            box-shadow: 0 0 40px rgba(59, 130, 246, 0.3);
+            transform: translateY(-5px);
         }
 
         .dog-image {
             width: 100%;
             height: auto;
             border-radius: 20px;
-            filter: grayscale(30%) drop-shadow(0 0 20px rgba(255, 0, 0, 0.3));
+            filter: drop-shadow(0 0 20px rgba(168, 85, 247, 0.4));
             margin-bottom: 25px;
             display: block;
         }
 
         /* Contact Section */
         .contact-section {
-            background: #000;
+            background: #020617;
             border-top: 1px solid var(--border-color);
             text-align: center;
             padding-bottom: 50px;
@@ -148,16 +149,16 @@
         
         /* Link Styling */
         .social-links a {
-            color: #ccc;
+            color: #94a3b8;
             text-decoration: none;
             margin: 0 10px;
-            transition: color 0.3s ease, text-shadow 0.3s ease;
+            transition: all 0.3s ease;
             font-weight: bold;
         }
 
         .social-links a:hover {
-            color: var(--accent-color);
-            text-shadow: 0 0 10px var(--accent-color);
+            color: var(--secondary-accent);
+            text-shadow: 0 0 10px var(--secondary-accent);
         }
 
         @keyframes shine { to { background-position: 200% center; } }
@@ -169,7 +170,7 @@
         <div class="background-canvas" id="particles"></div>
         <div class="hero-container">
             <h1>Super Quant Club</h1>
-            <div style="letter-spacing: 5px; color: var(--accent-color); font-weight: bold; margin-top: 10px;">NIT JALANDHAR</div>
+            <div style="letter-spacing: 5px; color: var(--secondary-accent); font-weight: bold; margin-top: 10px;">NIT JALANDHAR</div>
         </div>
     </div>
 
@@ -233,11 +234,12 @@
         }
         function animate() {
             ctx.clearRect(0, 0, canvas.width, canvas.height);
-            ctx.fillStyle = 'rgba(255, 0, 0, 0.4)';
+            // Mixed purple/blue particles
             particles.forEach(p => {
                 p.x += p.vx; p.y += p.vy;
                 if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
                 if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.fillStyle = p.x % 2 === 0 ? 'rgba(168, 85, 247, 0.4)' : 'rgba(59, 130, 246, 0.4)';
                 ctx.beginPath();
                 ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
                 ctx.fill();
