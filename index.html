@@ -1,0 +1,220 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Super Quant Club | NIT Jalandhar</title>
+    <style>
+        :root {
+            --primary-bg: #0a0b10;
+            --accent-color: #00f2ff;
+            --text-color: #ffffff;
+            --glass-bg: rgba(255, 255, 255, 0.05);
+            --secondary-bg: #111420;
+        }
+
+        * { box-sizing: border-box; }
+
+        body, html {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+            background-color: var(--primary-bg);
+            color: var(--text-color);
+            scroll-behavior: smooth;
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .background-canvas {
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 1;
+            background: radial-gradient(circle at center, #1a1c2c 0%, #0a0b10 100%);
+        }
+
+        .hero-container {
+            position: relative;
+            z-index: 10;
+            padding: 3rem;
+            background: var(--glass-bg);
+            backdrop-filter: blur(15px);
+            border: 1px solid rgba(255, 255, 255, 0.1);
+            border-radius: 20px;
+            text-align: center;
+        }
+
+        h1 {
+            font-size: clamp(2rem, 8vw, 5rem);
+            margin: 0;
+            text-transform: uppercase;
+            letter-spacing: 8px;
+            background: linear-gradient(to right, #fff 20%, var(--accent-color) 40%, var(--accent-color) 60%, #fff 80%);
+            background-size: 200% auto;
+            background-clip: text;
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            animation: shine 4s linear infinite;
+            font-weight: 900;
+        }
+
+        /* Content Sections */
+        section {
+            padding: 100px 10%;
+            position: relative;
+            z-index: 2;
+        }
+
+        .about-section { background-color: var(--secondary-bg); }
+
+        h2 {
+            font-size: 2.5rem;
+            color: var(--accent-color);
+            border-left: 5px solid var(--accent-color);
+            padding-left: 15px;
+            margin-bottom: 30px;
+        }
+
+        p {
+            line-height: 1.8;
+            font-size: 1.1rem;
+            color: #ccc;
+            max-width: 800px;
+        }
+
+        /* Robot Dog Section */
+        .dog-section {
+            text-align: center;
+            background: var(--primary-bg);
+        }
+
+        .dog-card {
+            background: var(--glass-bg);
+            padding: 20px;
+            border-radius: 30px;
+            border: 1px solid rgba(0, 242, 255, 0.2);
+            display: inline-block;
+            margin-top: 20px;
+            max-width: 800px;
+        }
+
+        .dog-image {
+            width: 100%;
+            height: auto;
+            border-radius: 20px;
+            filter: drop-shadow(0 0 20px rgba(0, 242, 255, 0.4));
+            margin-bottom: 25px;
+            display: block;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            background: #050508;
+            border-top: 1px solid rgba(255, 255, 255, 0.1);
+            text-align: center;
+            padding-bottom: 50px;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-top: 40px;
+        }
+
+        .contact-item h3 { color: var(--accent-color); margin-bottom: 10px; }
+
+        @keyframes shine { to { background-position: 200% center; } }
+    </style>
+</head>
+<body>
+
+    <div class="hero">
+        <div class="background-canvas" id="particles"></div>
+        <div class="hero-container">
+            <h1>Super Quant Club</h1>
+            <div style="letter-spacing: 5px; color: var(--accent-color); font-weight: bold;">NIT JALANDHAR</div>
+        </div>
+    </div>
+
+    <section class="about-section">
+        <h2>About Us</h2>
+        <p>
+            <strong>The club focuses on quantum computing,</strong> exploring the mathematical foundations and physical principles that define the next era of technology. We dive deep into the world of subatomic processing, where traditional bits are replaced by qubits that exist in multiple states simultaneously.
+        </p>
+        <p>
+            Our mission at NIT Jalandhar is to empower students with the tools of quantitative analysis and quantum logic. By blending high-level physics with advanced computer science, we aim to lead research in quantum algorithms, secure communication, and ultra-fast optimization.
+        </p>
+    </section>
+
+    <section class="dog-section">
+        <h2>Chi Chi Robot Dog</h2>
+        <div class="dog-card">
+            <img src="https://wp.technologyreview.com/wp-content/uploads/2024/11/LucidSim-11.jpg" alt="Chi Chi Robot Dog" class="dog-image">
+            <p style="margin: 0 auto;">Chi Chi represents the pinnacle of our hardware initiatives. This quadrupedal robotic platform integrates real-time sensor fusion and computer vision, serving as a physical manifestation of the complex algorithms developed within the Super Quant Club.</p>
+        </div>
+    </section>
+
+    <section class="contact-section">
+        <h2>Contact Us</h2>
+        <div class="contact-grid">
+            <div class="contact-item">
+                <h3>Campus Base</h3>
+                <p>NIT Jalandhar<br>G.T. Road, Amritsar Bypass<br>Jalandhar, Punjab</p>
+            </div>
+            <div class="contact-item">
+                <h3>Inquiries</h3>
+                <p>superquant@nitj.ac.in</p>
+            </div>
+            <div class="contact-item">
+                <h3>Connect</h3>
+                <p>LinkedIn | Instagram | GitHub</p>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Background Particles
+        const canvas = document.createElement('canvas');
+        const ctx = canvas.getContext('2d');
+        document.getElementById('particles').appendChild(canvas);
+        let particles = [];
+        function init() {
+            canvas.width = window.innerWidth;
+            canvas.height = window.innerHeight;
+            for(let i=0; i<70; i++) {
+                particles.push({
+                    x: Math.random() * canvas.width,
+                    y: Math.random() * canvas.height,
+                    vx: (Math.random() - 0.5) * 0.3,
+                    vy: (Math.random() - 0.5) * 0.3,
+                    size: Math.random() * 2
+                });
+            }
+        }
+        function animate() {
+            ctx.clearRect(0, 0, canvas.width, canvas.height);
+            ctx.fillStyle = 'rgba(0, 242, 255, 0.2)';
+            particles.forEach(p => {
+                p.x += p.vx; p.y += p.vy;
+                if(p.x < 0 || p.x > canvas.width) p.vx *= -1;
+                if(p.y < 0 || p.y > canvas.height) p.vy *= -1;
+                ctx.beginPath();
+                ctx.arc(p.x, p.y, p.size, 0, Math.PI*2);
+                ctx.fill();
+            });
+            requestAnimationFrame(animate);
+        }
+        init(); animate();
+        window.onresize = () => { particles = []; init(); };
+    </script>
+</body>
+</html>
